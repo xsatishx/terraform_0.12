@@ -16,13 +16,13 @@ variable "name" {
 }
 
 variable "iam_instance_profile" {
-   default = ""
-   description = "IAM role attachment"
+  default     = ""
+  description = "IAM role attachment"
 }
 
 variable "vpc_security_group_ids" {
   description = "Subnet ID where the isntance has to be created"
-  type        = "list"
+  type        = list(string)
   default = [
     "sg-092dd498f29bf0362",
     "sg-c8eca2a9",
@@ -47,14 +47,13 @@ variable "key_name" {
 }
 
 variable "subnet_ids" {
-  type        = "list"
+  type        = list(string)
   description = "List of subnets to be associated with the instance"
   default = [
     "subnet-3fbf9073",
     "subnet-656f940e",
   ]
 }
-
 
 variable "root_volume_size" {
   description = "Size of the Root volume"
@@ -81,3 +80,4 @@ variable "tag_createdby" {
   description = "To specify how this instance was created"
   default     = "Terraform"
 }
+
