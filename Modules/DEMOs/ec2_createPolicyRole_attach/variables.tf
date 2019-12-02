@@ -1,6 +1,6 @@
 variable "iam_instance_profile" {
-	description = "instance profile with role"
-	default     = ""
+  description = "instance profile with role"
+  default     = ""
 }
 
 // tags
@@ -18,3 +18,4 @@ variable "tag_createdby" {
   description = "To specify how this instance was created"
   default     = "Terraform"
 }
+
