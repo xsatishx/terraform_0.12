@@ -4,18 +4,20 @@ variable "ami" {
   default     = "ami-06e7b9c5e0c4dd014"
   description = "Amazon Machine ID used for provisioning the instance"
 }
+
 //variable "instance_type" {
 //  default     = "t2.micro"
 //  description = "Type of instance to be provisioned"
 //}
 
-variable "instance_type" {}
+variable "instance_type" {
+}
 
 variable "instance_type_sel" {
-  type = "map"
+  type = map(string)
   default = {
     t2.micro = "t2.micro"
-    t2.nano = "t2.nano"
+    t2.nano  = "t2.nano"
     t2.large = "t2.large"
   }
 }
@@ -27,7 +29,7 @@ variable "name" {
 
 variable "vpc_security_group_ids" {
   description = "Subnet ID where the isntance has to be created"
-  type        = "list"
+  type        = list(string)
   default = [
     "sg-058aa84cc8c2c2f6f",
     "sg-f52ab79f",
@@ -52,14 +54,13 @@ variable "key_name" {
 }
 
 variable "subnet_ids" {
-  type        = "list"
+  type        = list(string)
   description = "List of subnets to be associated with the instance"
   default = [
     "subnet-64d2ec0c",
     "subnet-f0325fbc",
   ]
 }
-
 
 variable "root_volume_size" {
   description = "Size of the Root volume"
@@ -86,3 +87,4 @@ variable "tag_createdby" {
   description = "To specify how this instance was created"
   default     = "Terraform"
 }
+
