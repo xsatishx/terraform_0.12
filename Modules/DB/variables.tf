@@ -51,7 +51,7 @@ variable "port" {
 # optional
 variable "vpc_security_group_ids" {
   description = "Subnet ID where the isntance has to be created"
-  type        = "list"
+  type        = list(string)
   default = [
     "sg-058aa84cc8c2c2f6f",
     "sg-f52ab79f",
@@ -74,16 +74,13 @@ variable "deletion_protection" {
 }
 
 variable "subnet_ids" {
-  type = "list"
+  type = list(string)
   default = [
     "subnet-64d2ec0c",
     "subnet-f0325fbc",
   ]
   description = "A list of subnet IDS"
 }
-
-
-
 
 // tags
 variable "tag_environment" {
@@ -100,3 +97,4 @@ variable "tag_createdby" {
   description = "To specify how this instance was created"
   default     = "Terraform"
 }
+
