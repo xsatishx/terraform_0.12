@@ -16,9 +16,9 @@ variable "instance_type" {
 variable "instance_type_sel" {
   type = map(string)
   default = {
-    t2.micro = "t2.micro"
-    t2.nano  = "t2.nano"
-    t2.large = "t2.large"
+    "t2.micro" = "t2.micro"
+    "t2.nano"  = "t2.nano"
+    "t2.large" = "t2.large"
   }
 }
 
