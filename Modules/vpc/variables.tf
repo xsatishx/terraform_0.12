@@ -10,7 +10,7 @@ variable "cidr" {
 
 variable "azs" {
   description = "A list of availability zones in the region"
-  type        = "list"
+  type        = list(string)
   default = [
     "ap-northeast-2a",
     "ap-northeast-2c",
@@ -19,7 +19,7 @@ variable "azs" {
 
 variable "private_subnets" {
   description = "A list of private subnets inside the VPC"
-  type        = "list"
+  type        = list(string)
 
   default = [
     "10.0.1.0/24",
@@ -29,7 +29,7 @@ variable "private_subnets" {
 
 variable "public_subnets" {
   description = "A list of public subnets inside the VPC"
-  type        = "list"
+  type        = list(string)
 
   default = [
     "10.0.101.0/24",
@@ -52,3 +52,4 @@ variable "tag_createdby" {
   description = "To specify how this instance was created"
   default     = "Terraform"
 }
+
